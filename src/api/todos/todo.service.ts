@@ -9,15 +9,7 @@ export default class TodoService {
   ) {}
 
   create(dto: TodoDTO) {
-    const data = readData();
-    const newTodo = {
-      id: shortUUIDGenerator(),
-      deletedAt: null,
-      ...dto,
-    };
-    data.push(newTodo);
-    writeData(data);
-    return newTodo;
+    // implement
   }
 
   update(id: string, dto: TodoDTO) {
