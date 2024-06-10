@@ -17,38 +17,10 @@ Includes API Server utilities:
 * [cors](https://www.npmjs.com/package/cors)
   * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 
-Development utilities:
-
-* [typescript](https://www.npmjs.com/package/typescript)
-  * TypeScript is a language for application-scale JavaScript.
-* [ts-node](https://www.npmjs.com/package/ts-node)
-  * TypeScript execution and REPL for node.js, with source map and native ESM support.
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [typescript-eslint](https://typescript-eslint.io/)
-  * Tooling which enables ESLint to support TypeScript.
-* [jest](https://www.npmjs.com/package/jest)
-  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
-
 ## Setup
 
 ```
 npm install
-```
-
-# Generate Private and Public key pair
-
-private
-```
-openssl genrsa -out ./secret/private.pem 4096
-```
-public
-```
-openssl rsa -in ./secret/private.pem -pubout -outform PEM -out ./secret/public.pem
 ```
 
 ## Lint
@@ -69,34 +41,6 @@ npm run test
 npm run dev
 ```
 
-# Migration Create
-Only run when there any changes in entity
-
-
-## Migration UP
-
-```
-npm run build
-npm run migration:up
-```
-
-## Migration DOWN
-
-```
-npm run migration:down
-```
-
-## Seeding
-
-```
-npm run build
-npm run seeder:run
-```
-run specific
-```
-npm run build
-npm run seeder:run -- -c=Seeder
-```
 
 
 # mci-core

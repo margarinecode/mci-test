@@ -1,0 +1,17 @@
+version: '3'
+services:
+  webapp:
+    image: mci-core:1.2.0
+    container_name: mci-core-stage
+    network_mode: "host"
+    env_file:
+      - ".env.stage"
+    ports:
+      - "5029:5029"
+    environment:
+      PORT: 5029
+    restart: unless-stopped
+    volumes:
+      - $(pwd)/secret:/usr/src/mci-core/secret
+
+
