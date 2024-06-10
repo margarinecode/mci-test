@@ -2,7 +2,6 @@ import { Express } from 'express';
 import { FilterDTO, TodoDTO } from './todo.interface';
 import { readData, writeData } from '../../data';
 import { shortUUIDGenerator } from '../../utils/ShortUUIDGenerator';
-import { assert } from 'console';
 
 export default class TodoService {
   constructor(
@@ -21,43 +20,25 @@ export default class TodoService {
     return newTodo;
   }
 
-  async get(id: string) {
-    const data = readData();
-    const todo = data.find(v => v.id === id);
-    if (!todo) {
-      throw new Error('Not found!');
-    }
-    return todo;
+  update(id: string, dto: TodoDTO) {
+    // implement
+  }
+
+  get(id: string) {
+    // implement
   }
   
   getAll(filter: FilterDTO) {
     const data = readData();
-    if (filter.active) {
-      return data.filter(v => v.deletedAt === null);
-    }
+    // implement filter
     return data;
   }
 
   hardDelete(id: string) {
-    const data = readData();
-    const index = data.findIndex(v => v.id === id);
-    
-    if (index) {
-      const deleted = data.splice(index, 1);
-      writeData(data);
-      return deleted;
-    }
-    return null;
+    // implement
   }
 
   softDelete(id: string) {
-    const data = readData();
-    const todo = data.find(v => v.id === id);
-    if (!todo) {
-      throw new Error('Not found!');
-    }
-    todo.deletedAt = new Date();
-    writeData(data);
-    return todo;
+    // implement
   }
 }

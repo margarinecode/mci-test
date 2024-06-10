@@ -26,7 +26,8 @@ export default class TodoController extends AbstractController {
       handleError(this.get),
     ];
     const updateHandlers: RequestHandler[] = [
-      validation(create, 'params'),
+      validation(paramIdQuery, 'params'),
+      validation(create, 'body'),
       handleError(this.update),
     ];
     const createHandlers: RequestHandler[] = [
@@ -62,9 +63,9 @@ export default class TodoController extends AbstractController {
     return res.status(StatusCodes.CREATED).json(result);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   update(req: Request, res: Response) {
-
+    const result = this.service.update(req.params.id, req.body);
+    return res.status(StatusCodes.ACCEPTED).json(result);
   }
 
   async delete(req: Request, res: Response) {
