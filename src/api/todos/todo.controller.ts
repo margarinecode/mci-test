@@ -70,11 +70,9 @@ export default class TodoController extends AbstractController {
 
   async delete(req: Request, res: Response) {
     const query = req.query;
-    const hard = query.hard === 'true';
     let result;
-    console.log(hard);
     
-    if (hard) {
+    if (query.hard) {
       result = this.service.hardDelete(req.params.id);
     } else {
       result = this.service.softDelete(req.params.id);
