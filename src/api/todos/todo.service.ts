@@ -24,7 +24,9 @@ export default class TodoService {
   async get(id: string) {
     const data = readData();
     const todo = data.find(v => v.id === id);
-    assert(!!todo, 'Todo not found!');
+    if (!todo) {
+      throw new Error('Not found!');
+    }
     return todo;
   }
   
