@@ -4,7 +4,7 @@ import { handleError } from '../../middlewares/handleError';
 import TodoService from './todo.service';
 import { FilterDTO } from './todo.interface';
 import { validation } from '../../middlewares/validation';
-import { create, deleteQuery, getQuery, paramIdQuery } from './todo.validation';
+import { create, deleteQuery, getQuery, paramIdQuery, update } from './todo.validation';
 import AbstractController from '../../global-services/abstract.controller';
 
 export default class TodoController extends AbstractController {
@@ -27,7 +27,7 @@ export default class TodoController extends AbstractController {
     ];
     const updateHandlers: RequestHandler[] = [
       validation(paramIdQuery, 'params'),
-      validation(create, 'body'),
+      validation(update, 'body'),
       handleError(this.update),
     ];
     const createHandlers: RequestHandler[] = [
@@ -54,6 +54,7 @@ export default class TodoController extends AbstractController {
   }
   
   async getAll(req: Request, res: Response) {
+    console.log(req.query)
     const result = this.service.getAll(req.query as unknown as FilterDTO);
     return res.status(StatusCodes.OK).json(result);
   }

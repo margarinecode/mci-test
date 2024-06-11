@@ -1,7 +1,7 @@
 import { Duration } from 'date-fns';
 
 export interface FilterDTO {
-  active: boolean;
+  active: string;
 }
 
 export interface DeleteQueryDTO {

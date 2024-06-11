@@ -1,9 +1,13 @@
-import Joi from 'joi';
+import Joi from "joi";
 
 export const create = Joi.object({
+  task: Joi.string(),
+  duration: Joi.string(),
 });
 
 export const update = Joi.object({
+  task: Joi.string(),
+  duration: Joi.string(),
 });
 
 export const deleteQuery = Joi.object({
@@ -16,4 +20,5 @@ export const paramIdQuery = Joi.object({
 
 export const getQuery = Joi.object({
   search: Joi.string(),
+  active: Joi.string(),
 });
